@@ -1,8 +1,6 @@
 <nav class="bg-gray-900 p-4">
   <div class="container mx-auto flex justify-between items-center">
-    <a class="text-white text-lg font-bold" href="#"
-      >My Coding Market</a
-    >
+    <a class="text-white text-lg font-bold" href="#">My Coding Market</a>
     <button class="text-white block md:hidden" type="button" id="navbarToggle">
       <svg
         class="h-6 w-6 fill-current"
@@ -12,8 +10,27 @@
         <path d="M4 5h16M4 12h16M4 19h16" />
       </svg>
     </button>
-    <div class="hidden md:flex md:items-center md:w-auto" id="navbarNav">
-      <!-- Add your navigation links here -->
+    <div class="hidden w-full md:flex md:items-center md:w-auto" id="navbarNav">
+      <ul class="flex flex-col md:flex-row md:space-x-4">
+        <li class="nav-item">
+          <a class="text-white py-2 block hover:text-gray-300" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="text-white py-2 block hover:text-gray-300" href="#">
+            Market
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="text-white py-2 block hover:text-gray-300" href="#">
+            Login
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="text-white py-2 block hover:text-gray-300" href="#">
+            Register
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
