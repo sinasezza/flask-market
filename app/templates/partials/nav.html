@@ -1,0 +1,28 @@
+<nav class="bg-gray-900 p-4">
+  <div class="container mx-auto flex justify-between items-center">
+    <a class="text-white text-lg font-bold" href="#"
+      >My Coding Market</a
+    >
+    <button class="text-white block md:hidden" type="button" id="navbarToggle">
+      <svg
+        class="h-6 w-6 fill-current"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <path d="M4 5h16M4 12h16M4 19h16" />
+      </svg>
+    </button>
+    <div class="hidden md:flex md:items-center md:w-auto" id="navbarNav">
+      <!-- Add your navigation links here -->
+    </div>
+  </div>
+</nav>
+
+<script>
+  document
+    .getElementById("navbarToggle")
+    .addEventListener("click", function () {
+      var nav = document.getElementById("navbarNav");
+      nav.classList.toggle("hidden");
+    });
+</script>

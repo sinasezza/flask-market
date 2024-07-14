@@ -10,8 +10,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-  {% block content %}
-    
-  {% endblock content %}
+  {% include "partials/nav.html" %}
+  {% block content %}{% endblock content %}
 </body>
 </html>
