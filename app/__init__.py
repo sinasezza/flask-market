@@ -20,7 +20,7 @@ def create_app(config_class=None) -> Flask:
 
     with app.app_context():
         # Initialize the database
-        # init_db(app)
+        init_db(app)
 
         # Import views
         from . import views

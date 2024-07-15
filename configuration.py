@@ -1,7 +1,7 @@
 import os
 import pathlib
-from dotenv import load_dotenv
 
+from dotenv import load_dotenv
 
 # Define base directory
 BASEDIR = pathlib.Path(__file__).resolve().parent
@@ -12,7 +12,7 @@ load_dotenv(BASEDIR / ".env")
 class Config(object):
     """Base config."""
 
-    DEBUG = os.environ.get('DEBUG', False)
+    DEBUG = os.environ.get("DEBUG", False)
     TESTING = False
     DB_SERVER = "localhost"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
