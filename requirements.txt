@@ -1,10 +1,14 @@
 blinker==1.8.2
 click==8.1.7
 colorama==0.4.6
+dnspython==2.6.1
+email-validator==2.2.0
 flask==3.0.3
 flask-sqlalchemy==3.1.1
+flask-wtf==1.2.1
 greenlet==3.0.3
 h11==0.14.0
+idna==3.7
 iniconfig==2.0.0
 isort==5.13.2
 itsdangerous==2.2.0
@@ -20,3 +24,4 @@ sqlalchemy==2.0.31
 typing-extensions==4.12.2
 uv==0.2.24
 werkzeug==3.0.3
+wtforms==3.1.2

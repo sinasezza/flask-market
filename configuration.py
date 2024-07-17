@@ -12,6 +12,7 @@ load_dotenv(BASEDIR / ".env")
 class Config(object):
     """Base config."""
 
+    SECRET_KEY = os.environ.get("SECRET_KEY", "secret-key")
     DEBUG = os.environ.get("DEBUG", False)
     TESTING = False
     DB_SERVER = "localhost"
