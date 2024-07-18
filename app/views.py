@@ -1,8 +1,9 @@
 from flask import current_app as app
-from flask import flash, get_flashed_messages, redirect, render_template, url_for
+from flask import flash, redirect, render_template, url_for
 
+from . import bcrypt, db
 from .forms import RegisterForm
-from .models import Item, User, db
+from .models import Item, User
 
 
 @app.route("/")

@@ -45,3 +45,9 @@ config = {
     "testing": TestingConfig,
     "default": DevelopmentConfig,
 }
+
+
+port = int(os.environ.get("PORT", 5000))
+
+config_name = os.environ.get("FLASK_CONFIGURATION", "default")
+config_class = config[config_name]
