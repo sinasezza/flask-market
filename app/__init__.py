@@ -21,7 +21,11 @@ app = Flask(
 
 db = SQLAlchemy()
 bcrypt = Bcrypt(app)
+
 login_manager = LoginManager(app)
+login_manager.login_view = "login_page"
+login_manager.login_message_category = "warning"
+
 
 # Load default config and override config from an environment variable
 app.config.from_object(DevelopmentConfig)
@@ -31,6 +35,6 @@ if config_class is not None:
 with app.app_context():
     # Initialize the database
     init_db(app)
-    
+
     # Import views
     from . import views

@@ -3,11 +3,17 @@
     <div class="flex items-center space-x-4">
       <a class="text-white text-2xl font-bold" href="/">My Coding Market</a>
       <a class="text-white hover:text-gray-300" href="{{ url_for('home_page') }}">Home</a>
-      <a class="text-white hover:text-gray-300" href="{{ url_for('market_page') }}">Market</a>
+      {% if current_user.is_authenticated %}
+        <a class="text-white hover:text-gray-300" href="{{ url_for('market_page') }}">Market</a>
+      {% endif %}
     </div>
     <div class="hidden md:flex space-x-4">
       {% if current_user.is_authenticated %}
         <div class="flex items-center space-x-4">
+          <div class="text-green-300 text-xl font-bold px-3">
+            <i class="fas fa-coins"></i>
+            {{ current_user.budget_formatted }}
+          </div>
           <div class="text-white text-xl font-bold px-3">{{ current_user.username }}</div>
           <a class="text-white hover:text-gray-300" href="{{ url_for('logout_page') }}">Logout</a>
         </div>

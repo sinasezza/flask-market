@@ -1,10 +1,11 @@
 from flask import current_app as app
 from flask import flash, redirect, render_template, url_for
-from flask_login import login_user, logout_user
+from flask_login import login_required, login_user, logout_user
 
 from . import db
 from .forms import LoginForm, RegisterForm
 from .models import Item, User
+from .utils import logout_required
 
 
 @app.route("/")
@@ -14,12 +15,14 @@ def home_page():
 
 
 @app.route("/market/")
+@login_required
 def market_page():
     items = Item.query.all()
     return render_template("market.html", items=items)
 
 
 @app.route("/register/", methods=["GET", "POST"])
+@logout_required
 def register_page():
     form = RegisterForm()
 
@@ -43,9 +46,10 @@ def register_page():
 
 
 @app.route("/login/", methods=["GET", "POST"])
+@logout_required
 def login_page():
     form = LoginForm()
-    
+
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user and user.check_password_correction(form.password.data):
@@ -62,6 +66,7 @@ def login_page():
 
 
 @app.route("/logout/")
+@login_required
 def logout_page():
     logout_user()
     flash("You have been logged out", category="info")
