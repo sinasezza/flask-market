@@ -6,8 +6,15 @@
       <a class="text-white hover:text-gray-300" href="{{ url_for('market_page') }}">Market</a>
     </div>
     <div class="hidden md:flex space-x-4">
-      <a class="text-white hover:text-gray-300" href="/login/">Login</a>
-      <a class="text-white hover:text-gray-300" href="/register/">Register</a>
+      {% if current_user.is_authenticated %}
+        <div class="flex items-center space-x-4">
+          <div class="text-white text-xl font-bold px-3">{{ current_user.username }}</div>
+          <a class="text-white hover:text-gray-300" href="{{ url_for('logout_page') }}">Logout</a>
+        </div>
+      {% else %}
+        <a class="text-white hover:text-gray-300" href="/login/">Login</a>
+        <a class="text-white hover:text-gray-300" href="/register/">Register</a>
+      {% endif %}
     </div>
     <button class="text-white block md:hidden" type="button" id="navbarToggle">
       <svg class="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

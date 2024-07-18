@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_bcrypt import Bcrypt
+from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 
 from configuration import DevelopmentConfig, config_class
@@ -20,6 +21,7 @@ app = Flask(
 
 db = SQLAlchemy()
 bcrypt = Bcrypt(app)
+login_manager = LoginManager(app)
 
 # Load default config and override config from an environment variable
 app.config.from_object(DevelopmentConfig)
@@ -29,6 +31,6 @@ if config_class is not None:
 with app.app_context():
     # Initialize the database
     init_db(app)
-
+    
     # Import views
     from . import views
