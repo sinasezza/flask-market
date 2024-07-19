@@ -54,3 +54,17 @@ class LoginForm(FlaskForm):
         label="Password:", validators=[DataRequired(), Length(min=6)]
     )
     submit = SubmitField(label="Login")
+
+
+# =======================================================================================
+
+
+class PurchaseItemForm(FlaskForm):
+    submit = SubmitField(label="Purchase Item!")
+
+
+# =======================================================================================
+
+
+class SellItemForm(FlaskForm):
+    submit = SubmitField(label="Sell Item!")

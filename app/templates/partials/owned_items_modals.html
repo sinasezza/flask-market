@@ -1,0 +1,37 @@
+<style>
+  .modal-content {
+    background-color: #212121;
+  }
+</style>
+
+<!-- Selling Confirm -->
+<div class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50" id="Modal-SellingConfirm-{{ owned_item.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="bg-gray-800 rounded-lg shadow-lg w-full max-w-md mx-auto">
+    <div class="bg-gray-900 rounded-t-lg p-4 flex justify-between items-center">
+      <h5 class="text-lg font-semibold text-white" id="ModalLabel">
+        {{ owned_item.name }}
+      </h5>
+      <button type="button" class="text-white hover:text-gray-400" onclick="closeModal('Modal-SellingConfirm-{{ owned_item.id }}')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="bg-gray-800 p-4 rounded-b-lg">
+      <form method="POST">
+        {{ selling_form.hidden_tag() }}
+        <h4 class="text-center text-white">
+          Are you sure you want to sell {{ owned_item.name }} for {{ owned_item.price_formatted }} ?
+        </h4>
+        <br>
+        <h6 class="text-center text-gray-400">
+          By clicking Sell, you will put this item back on market
+        </h6>
+        <br>
+        <input id="sold_item" name="sold_item" type="hidden" value="{{ owned_item.name }}">
+        {{ selling_form.submit(class="w-full px-4 py-2 bg-red-500 text-white rounded hover:bg-red-400 cursor-pointer") }}
+      </form>
+    </div>
+    <div class="bg-gray-900 p-4 rounded-b-lg text-right">
+      <button type="button" class="px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-600" onclick="closeModal('Modal-SellingConfirm-{{ owned_item.id }}')">Close</button>
+    </div>
+  </div>
+</div>

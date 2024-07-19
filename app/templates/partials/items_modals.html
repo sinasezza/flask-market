@@ -1,0 +1,80 @@
+<!-- More Info Modal -->
+<div
+  class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50"
+  id="Modal-MoreInfo-{{ item.id }}"
+>
+  <div
+    class="relative w-auto max-w-lg mx-auto bg-gray-800 rounded-lg shadow-lg"
+  >
+    <div class="flex items-start justify-between p-4 border-b border-gray-700">
+      <h5 class="text-lg font-medium text-white">{{ item.name }}</h5>
+      <button
+        type="button"
+        class="text-gray-400 hover:text-gray-200"
+        onclick="closeModal('Modal-MoreInfo-{{ item.id }}')"
+      >
+        <span class="text-2xl">&times;</span>
+      </button>
+    </div>
+    <div class="p-4">
+      <p class="text-gray-300">{{ item.description }}</p>
+    </div>
+    <div class="flex items-center justify-end p-4 border-t border-gray-700">
+      <button
+        type="button"
+        class="px-4 py-2 text-white bg-gray-600 rounded hover:bg-gray-500"
+        onclick="closeModal('Modal-MoreInfo-{{ item.id }}')"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Purchase Confirm Modal -->
+<div
+  class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50"
+  id="Modal-PurchaseConfirm-{{ item.id }}"
+>
+  <div
+    class="relative w-auto max-w-lg mx-auto bg-gray-800 rounded-lg shadow-lg"
+  >
+    <div class="flex items-start justify-between p-4 border-b border-gray-700">
+      <h5 class="text-lg font-medium text-white">{{ item.name }}</h5>
+      <button
+        type="button"
+        class="text-gray-400 hover:text-gray-200"
+        onclick="closeModal('Modal-PurchaseConfirm-{{ item.id }}')"
+      >
+        <span class="text-2xl">&times;</span>
+      </button>
+    </div>
+    <div class="p-4">
+      <form method="POST">
+        {{ purchase_form.hidden_tag() }}
+        <h4 class="mb-4 text-center text-white">
+          Are you sure you want to buy {{ item.name }} for {{ item.price_formatted }} ?
+        </h4>
+        <h6 class="mb-4 text-center text-gray-400">
+          By clicking Purchase, you will purchase this item.
+        </h6>
+        <input
+          id="purchased_item"
+          name="purchased_item"
+          type="hidden"
+          value="{{ item.name }}"
+        />
+        {{ purchase_form.submit(class="w-full px-4 py-2 text-white bg-green-600 rounded hover:bg-green-500") }}
+      </form>
+    </div>
+    <div class="flex items-center justify-end p-4 border-t border-gray-700">
+      <button
+        type="button"
+        class="px-4 py-2 text-white bg-gray-600 rounded hover:bg-gray-500"
+        onclick="closeModal('Modal-PurchaseConfirm-{{ item.id }}')"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</div>
