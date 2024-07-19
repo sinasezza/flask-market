@@ -35,6 +35,9 @@ class DevelopmentConfig(Config):
 
 class TestingConfig(Config):
     DB_SERVER = os.getenv("DB_SERVER_DEVELOPMENT", "localhost")
+    SQLALCHEMY_DATABASE_URI = os.getenv(
+        "SQLALCHEMY_TEST_DATABASE_URI", "sqlite:///./test_database.db"
+    )
     DEBUG = True
     TESTING = True
 
