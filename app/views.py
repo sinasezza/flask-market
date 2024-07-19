@@ -33,7 +33,7 @@ def market_page():
             else:
                 flash(
                     f"Unfortunately, you don't have enough money to purchase {p_item_object.name}!",
-                    category="danger",
+                    category="error",
                 )
         # Sell Item Logic
         sold_item = request.form.get("sold_item")

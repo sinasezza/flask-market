@@ -1,20 +1,23 @@
-# STYLER - The TAILWIND CSS CONFIGURATIONS
+# Styler - Tailwind CSS Configurations
 
-it is configurations of tailwindcss for the flack market project
+This directory contains the Tailwind CSS configurations for the Flask Market project.
 
-**make sure you have installed NodeJs**
+## Prerequisites
+
+Make sure you have [Node.js](https://nodejs.org/) installed on your system.
 
 ## Install Tailwind css
 
-in the terminal run:
+To install Tailwind CSS, run the following command in the terminal:
 
 ```bash
 npm install
 ```
 
-## to run Tailwind
+## Run Tailwind CSS
 
-in the terminal:
+To start Tailwind CSS in development mode, run:
+
 ```bash
 npm run dev
 ```
